@@ -119,7 +119,7 @@
     left: 0; /* Set the left to 0 */
     width: 100%; /* Set the width to 100% */
     height: 100%; /* Set the height to 100% */
-    background-image: url('https://i.imgur.com/5Q0fW8a.png'); /* Use a sparkling background image */
+    background-image: url('https://i.pinimg.com/originals/3a/eb/19/3aeb19e1e3fd9e53b688a12ed989d1d7.gif'); /* Use a sparkling background image */
     background-size: cover; /* Cover the whole area */
     z-index: 2; /* Set the z-index to 2 */
     display: flex; /* Use flex display */
@@ -146,7 +146,7 @@
     height: 100px; /* Set the height to 100px */
     padding: 10px;
     border: none;
-    border-radius: 50%; /* Make it a heart shape */
+    border-radius: 10px; /* Make it a heart shape */
     background-color: #fff; /* Change the background color to white */
     color: #333; /* Change the color to black */
     font-family: 'Lobster', cursive; /* Use the same font as the body */
@@ -180,7 +180,7 @@
   }
 
   @keyframes bounce {
-    0% {
+     0% {
       transform: translateY(0);
     }
     50% {
@@ -223,7 +223,10 @@
       Will you be my partner in all ups and downs?<br>
       I ACTUALLY DON’T KNOW HOW LONG OUR JOURNEY WILL BE, BUT I CAN ASSURE THAT IT WILL BE FULL OF JOY AND THRILLER. <br>
       YEAH, AND MY ALL MAZAK KR RHA HU IS A MAZAK… KIDDING. 😛"</p>
-      <textarea id="comment" placeholder="Share your feelings..."></textarea>
+      <form id="feelings-form">
+        <textarea id="comment" name="feelings" placeholder="Share your feelings..."></textarea>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
   <script>
@@ -248,7 +251,13 @@
         document.querySelector('.no').textContent = 'Thank you for not lying. You can close the website.';
       }
     });
+
+    document.getElementById('feelings-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var feelings = document.getElementById('comment').value;
+      // Handle the submission of feelings here (e.g., send to server, display message, etc.)
+      alert('Feelings submitted: ' + feelings);
+    });
   </script>
-  </body>
-  </html>
-  
+</body>
+</html>
