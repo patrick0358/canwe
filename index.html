@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beautiful Proposal</title>
+<style>
+  /* Add a background image or gradient to the body */
+  body {
+    font-family: 'Lobster', cursive; /* Use a font that matches your theme and mood */
+    background-image: linear-gradient(to right, pink, purple); /* Use a gradient or an image */
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .password-page,
+  .proposal-scene,
+  .congratulations-message {
+    text-align: center;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Add some animation to the password page */
+  .password-page {
+    opacity: 0; /* Set the initial opacity to 0 */
+    transform: translateY(-50px); /* Set the initial position to above */
+    transition: all 1s ease-in-out; /* Add a transition effect */
+  }
+
+  .password-page.show {
+    opacity: 1; /* Set the final opacity to 1 */
+    transform: translateY(0); /* Set the final position to normal */
+  }
+
+  .hint {
+    margin: 10px;
+    color: #999;
+  }
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: url('https://i.imgur.com/9wQXn3o.png'), auto; /* Use a custom cursor */
+  }
+
+  button:hover {
+    background-color: #e0e0e0; /* Add a hover effect */
+  }
+
+  /* Add some animation to the proposal scene */
+  .proposal-scene {
+    position: fixed; /* Use a fixed position */
+    top: 0; /* Set the top to 0 */
+    left: 0; /* Set the left to 0 */
+    width: 100%; /* Set the width to 100% */
+    height: 100%; /* Set the height to 100% */
+    background-color: rgba(0, 0, 0, 0.5); /* Use a semi-transparent background */
+    z-index: 1; /* Set the z-index to 1 */
+    display: flex; /* Use flex display */
+    align-items: center; /* Align the items vertically */
+    justify-content: center; /* Align the items horizontally */
+    opacity: 0; /* Set the initial opacity to 0 */
+    transform: scale(0.5); /* Set the initial scale to 0.5 */
+    transition: all 1s ease-in-out; /* Add a transition effect */
+  }
+
+  .proposal-scene.show {
+    opacity: 1; /* Set the final opacity to 1 */
+    transform: scale(1); /* Set the final scale to 1 */
+  }
+
+  .proposal-scene h2 {
+    font-size: 3rem; /* Increase the font size */
+    color: #fff; /* Change the color to white */
+    animation: zoom 2s infinite; /* Add a zoom animation */
+  }
+
+  .proposal-scene p {
+    font-size: 2rem; /* Increase the font size */
+    color: #fff; /* Change the color to white */
+  }
+
+  .options {
+    margin: 20px;
+  }
+
+  .options button {
+    margin: 10px;
+    padding: 20px 40px;
+    font-size: 1.5rem; /* Increase the font size */
+    border: none;
+    border-radius: 10px;
+    background-color: #fff; /* Change the background color to white */
+    color: #333; /* Change the color to black */
+    animation: rotate 2s infinite; /* Add a rotate animation */
+  }
+
+  .options button:hover {
+    animation-play-state: paused; /* Pause the animation on hover */
+  }
+
+  /* Add some animation to the congratulations message */
+  .congratulations-message {
+    position: fixed; /* Use a fixed position */
+    top: 0; /* Set the top to 0 */
+    left: 0; /* Set the left to 0 */
+    width: 100%; /* Set the width to 100% */
+    height: 100%; /* Set the height to 100% */
+    background-image: url('https://i.imgur.com/5Q0fW8a.png'); /* Use a sparkling background image */
+    background-size: cover; /* Cover the whole area */
+    z-index: 2; /* Set the z-index to 2 */
+    display: flex; /* Use flex display */
+    align-items: center; /* Align the items vertically */
+    justify-content: center; /* Align the items horizontally */
+    opacity: 0; /* Set the initial opacity to 0 */
+    transform: scale(0.5); /* Set the initial scale to 0.5 */
+    transition: all 1s ease-in-out; /* Add a transition effect */
+  }
+
+  .congratulations-message.show {
+    opacity: 1; /* Set the final opacity to 1 */
+    transform: scale(1); /* Set the final scale to 1 */
+  }
+
+  .congratulations-message p {
+    font-size: 2rem; /* Increase the font size */
+    color: #fff; /* Change the color to white */
+    animation: bounce 2s infinite; /* Add a bounce animation */
+  }
+
+  textarea {
+    width: 80%; /* Set the width to 80% */
+    height: 100px; /* Set the height to 100px */
+    padding: 10px;
+    border: none;
+    border-radius: 50%; /* Make it a heart shape */
+    background-color: #fff; /* Change the background color to white */
+    color: #333; /* Change the color to black */
+    font-family: 'Lobster', cursive; /* Use the same font as the body */
+    font-size: 1.5rem; /* Increase the font size */
+    resize: none; /* Disable resizing */
+  }
+
+  /* Define the keyframes for the animations */
+  @keyframes zoom {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="password-page show"> <!-- Add a show class to the password page -->
+    <h2>Welcome to our special place</h2>
+    <form id="password-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <span class="hint">Hint: It is the full form of 143 & type without any spaces.</span>
+      <button type="submit">Enter</button>
+    </form>
+  </div>
+  <div class="proposal-scene hidden"> <!-- Change the div to the proposal scene -->
+    <!-- Beautiful scene with romantic setting -->
+    <h2>Welcome, Beauty</h2>
+    <p>Will you be my partner?</p>
+    <div class="options">
+        <button class="yes">Yes</button>
+        <button class="no">No</button>
+      </div>
+    </div>
+    <div class="congratulations-message hidden"> <!-- Change the div to the congratulations message -->
+      <p>Congratulations!</p>
+      <!-- Customized message -->
+      <p>"I have been admiring you for a while now, and I believe it’s time to express my feelings.<br>
+      Your name truly reflects who you are, inside and out.<br>
+      I would be honored if you would consider sharing your life with me.<br>
+      Will you be my partner in all ups and downs?<br>
+      I ACTUALLY DON’T KNOW HOW LONG OUR JOURNEY WILL BE, BUT I CAN ASSURE THAT IT WILL BE FULL OF JOY AND THRILLER. <br>
+      YEAH, AND MY ALL MAZAK KR RHA HU IS A MAZAK… KIDDING. 😛"</p>
+      <textarea id="comment" placeholder="Share your feelings..."></textarea>
+    </div>
+  </div>
+  <script>
+    document.getElementById('password-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var password = document.getElementById('password').value;
+      if (password === 'iloveyou') {
+        document.querySelector('.password-page').classList.add('hidden');
+        document.querySelector('.proposal-scene').classList.add('show'); // Add a show class to the proposal scene
+      } else {
+        alert('Incorrect password. Try again.');
+      }
+    });
+  
+    document.querySelector('.yes').addEventListener('click', function() {
+      var answer = confirm('Are you serious?');
+      if (answer) {
+        document.querySelector('.proposal-scene').classList.add('hidden');
+        document.querySelector('.congratulations-message').classList.add('show'); // Add a show class to the congratulations message
+      } else {
+        document.querySelector('.yes').classList.add('hidden');
+        document.querySelector('.no').textContent = 'Thank you for not lying. You can close the website.';
+      }
+    });
+  </script>
+  </body>
+  </html>
+  
